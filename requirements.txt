@@ -1,7 +1,9 @@
-streamlit
+   streamlit
 langchain
+langchain-core
 langchain-openai
 langchain-community
+langchain-pinecone
 langgraph
 langsmith
 pinecone
