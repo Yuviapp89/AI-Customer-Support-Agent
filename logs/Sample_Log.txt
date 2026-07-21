@@ -1,0 +1,79 @@
+2026-07-20 20:05:49,448 | INFO | app.service | New question received: Tell me about the Sapphire Tennis Bracelet
+2026-07-20 20:05:49,594 | INFO | app.nodes | Initialize Agent | history=0
+2026-07-20 20:05:49,599 | INFO | app.nodes | Intent Agent | history=0
+2026-07-20 20:05:58,103 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:05:58,165 | INFO | app.nodes | Intent classified as PRODUCT
+2026-07-20 20:05:58,170 | INFO | app.nodes | Query Rewriter | history=0
+2026-07-20 20:05:59,464 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:05:59,481 | INFO | app.nodes | Original: Tell me about the Sapphire Tennis Bracelet | Rewritten: Tell me about the Sapphire Tennis Bracelet.
+2026-07-20 20:05:59,485 | INFO | app.nodes | Routing -> product
+2026-07-20 20:05:59,491 | INFO | app.nodes | Retrieval Agent | history=0
+2026-07-20 20:06:55,018 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-07-20 20:06:58,039 | INFO | app.nodes | Retrieved 2 document(s).
+2026-07-20 20:06:58,043 | INFO | app.nodes | Response Agent | history=0
+2026-07-20 20:07:02,835 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:07:02,846 | INFO | app.nodes | Validation Agent | history=2
+2026-07-20 20:07:04,969 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:07:04,987 | INFO | app.nodes | Recommendation Agent | history=2
+2026-07-20 20:07:05,883 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:19:28,376 | INFO | app.service | New question received: Tell me about the Sapphire Tennis Bracelet
+2026-07-20 20:19:28,517 | INFO | app.nodes | Initialize Agent | history=0
+2026-07-20 20:19:28,522 | INFO | app.nodes | Intent Agent | history=0
+2026-07-20 20:19:34,368 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:19:34,415 | INFO | app.nodes | Intent classified as PRODUCT
+2026-07-20 20:19:34,420 | INFO | app.nodes | Query Rewriter | history=0
+2026-07-20 20:19:35,915 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:19:35,921 | INFO | app.nodes | Original: Tell me about the Sapphire Tennis Bracelet | Rewritten: Tell me about the Sapphire Tennis Bracelet.
+2026-07-20 20:19:35,923 | INFO | app.nodes | Routing -> product
+2026-07-20 20:19:35,928 | INFO | app.nodes | Retrieval Agent | history=0
+2026-07-20 20:19:41,561 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-07-20 20:19:42,829 | INFO | app.nodes | Retrieved 2 document(s).
+2026-07-20 20:19:42,832 | INFO | app.nodes | Response Agent | history=0
+2026-07-20 20:19:45,095 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:19:45,103 | INFO | app.nodes | Validation Agent | history=2
+2026-07-20 20:19:47,107 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:19:47,115 | INFO | app.nodes | Recommendation Agent | history=2
+2026-07-20 20:19:48,433 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:20:15,754 | INFO | app.service | New question received: What is the return policy?
+2026-07-20 20:20:15,761 | INFO | app.nodes | Initialize Agent | history=2
+2026-07-20 20:20:15,765 | INFO | app.nodes | Intent Agent | history=2
+2026-07-20 20:20:16,648 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:20:16,665 | INFO | app.nodes | Intent classified as RETURNS
+2026-07-20 20:20:16,668 | INFO | app.nodes | Query Rewriter | history=2
+2026-07-20 20:20:18,895 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:20:18,901 | INFO | app.nodes | Original: What is the return policy? | Rewritten: What is the return policy for the Sapphire Tennis Bracelet?
+2026-07-20 20:20:18,903 | INFO | app.nodes | Routing -> returns
+2026-07-20 20:20:18,909 | INFO | app.nodes | Retrieval Agent | history=2
+2026-07-20 20:20:19,533 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-07-20 20:20:20,901 | INFO | app.nodes | Retrieved 5 document(s).
+2026-07-20 20:20:20,904 | INFO | app.nodes | Response Agent | history=2
+2026-07-20 20:20:23,474 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:20:23,482 | INFO | app.nodes | Validation Agent | history=4
+2026-07-20 20:20:26,916 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:20:26,923 | INFO | app.nodes | Recommendation Agent | history=4
+2026-07-20 20:20:30,471 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:21:10,812 | INFO | app.service | New question received: Are there any bracelets present in the product catalog? Just tell the names.
+2026-07-20 20:21:10,817 | INFO | app.nodes | Initialize Agent | history=4
+2026-07-20 20:21:10,821 | INFO | app.nodes | Intent Agent | history=4
+2026-07-20 20:21:11,933 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:21:11,940 | INFO | app.nodes | Intent classified as PRODUCT
+2026-07-20 20:21:11,943 | INFO | app.nodes | Query Rewriter | history=4
+2026-07-20 20:21:12,914 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:21:12,932 | INFO | app.nodes | Original: Are there any bracelets present in the product catalog? Just tell the names. | Rewritten: Are there any bracelets, such as the Sapphire Tennis Bracelet, present in the product catalog? Just tell the names.
+2026-07-20 20:21:12,934 | INFO | app.nodes | Routing -> product
+2026-07-20 20:21:12,939 | INFO | app.nodes | Retrieval Agent | history=4
+2026-07-20 20:21:13,686 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-07-20 20:21:15,337 | INFO | app.nodes | Retrieved 2 document(s).
+2026-07-20 20:21:15,340 | INFO | app.nodes | Response Agent | history=4
+2026-07-20 20:21:17,101 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:21:17,109 | INFO | app.nodes | Validation Agent | history=6
+2026-07-20 20:21:18,484 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:21:18,493 | INFO | app.nodes | Recommendation Agent | history=6
+2026-07-20 20:21:21,877 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:21:41,432 | INFO | app.service | New question received: What is the gemstone used in it?
+2026-07-20 20:21:41,436 | INFO | app.nodes | Initialize Agent | history=6
+2026-07-20 20:21:41,441 | INFO | app.nodes | Intent Agent | history=6
+2026-07-20 20:21:43,415 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-20 20:21:43,421 | INFO | app.nodes | Intent classified as PRODUCT
+2026-07-20 20:21:43,424 | INFO | app.nodes | Query Rewriter | history=6
+2026-07-20 20:21:44,261 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
