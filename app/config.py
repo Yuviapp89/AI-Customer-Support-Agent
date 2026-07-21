@@ -1,9 +1,16 @@
 """
 Centralized configuration for the AI Customer Support Agent.
 
-Loads environment variables (via python-dotenv) and exposes the constants
-used across the retrieval, generation and Streamlit layers. Nothing in this
-module talks to OpenAI/Pinecone directly - it only prepares configuration.
+Loads configuration from, in order of preference:
+1. Streamlit secrets (``st.secrets``) - used automatically when the app is
+   deployed on Streamlit Community Cloud (or run locally with a
+   ``.streamlit/secrets.toml`` file present).
+2. Environment variables / a local ``.env`` file (via python-dotenv) - used
+   when running locally, e.g. from VS Code, without any Streamlit secrets
+   configured.
+
+Nothing in this module talks to OpenAI/Pinecone directly - it only prepares
+configuration.
 """
 
 from __future__ import annotations
@@ -21,12 +28,34 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
-LANGSMITH_API_KEY = os.environ.get("LANGSMITH_API_KEY")
-LANGSMITH_PROJECT = os.environ.get("LANGSMITH_PROJECT", "customer-support-agent")
-LANGSMITH_ENDPOINT = os.environ.get("LANGSMITH_ENDPOINT", "https://api.smith.langchain.com")
-_LANGSMITH_TRACING_RAW = os.environ.get("LANGSMITH_TRACING")
+try:
+    import streamlit as st
+
+    _STREAMLIT_SECRETS = st.secrets
+except Exception:  # noqa: BLE001 - streamlit not installed/importable
+    _STREAMLIT_SECRETS = None
+
+
+def _get_setting(name: str, default: str | None = None) -> str | None:
+    """Look up a config value, preferring Streamlit secrets over the .env/OS
+    environment. Falls back silently to the environment if Streamlit secrets
+    aren't configured (e.g. no ``secrets.toml`` present locally).
+    """
+    if _STREAMLIT_SECRETS is not None:
+        try:
+            if name in _STREAMLIT_SECRETS:
+                return str(_STREAMLIT_SECRETS[name])
+        except Exception:  # noqa: BLE001 - no secrets.toml configured, etc.
+            pass
+    return os.environ.get(name, default)
+
+
+OPENAI_API_KEY = _get_setting("OPENAI_API_KEY")
+PINECONE_API_KEY = _get_setting("PINECONE_API_KEY")
+LANGSMITH_API_KEY = _get_setting("LANGSMITH_API_KEY")
+LANGSMITH_PROJECT = _get_setting("LANGSMITH_PROJECT", "customer-support-agent")
+LANGSMITH_ENDPOINT = _get_setting("LANGSMITH_ENDPOINT", "https://api.smith.langchain.com")
+_LANGSMITH_TRACING_RAW = _get_setting("LANGSMITH_TRACING")
 # Default to "on" whenever a key is present, but always respect an explicit override.
 LANGSMITH_TRACING = (
     _LANGSMITH_TRACING_RAW.lower() == "true"
@@ -61,7 +90,7 @@ def require_api_keys() -> None:
 # Pinecone / Embeddings
 # --------------------------------------------------------------------------
 
-INDEX_NAME = os.environ.get("PINECONE_INDEX_NAME", "customer-support-agent")
+INDEX_NAME = _get_setting("PINECONE_INDEX_NAME", "customer-support-agent")
 EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
 METRIC = "cosine"
