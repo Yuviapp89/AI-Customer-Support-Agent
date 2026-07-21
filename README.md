@@ -1,95 +1,38 @@
 AI Customer Support Agent
-An intelligent, multi‑agent customer support system powered by Retrieval‑Augmented Generation (RAG), LangGraph, OpenAI, and Pinecone.
-This chatbot retrieves product information from a structured jewellery knowledge base and generates accurate, context‑aware responses through a Streamlit interface.
+**Project Overview**
+This project implements an AI-powered Customer Support Agent using Retrieval-Augmented Generation (RAG).
 
-📛 Badges
-https://img.shields.io/badge/Python-3.10-blue.svg
-https://img.shields.io/badge/Streamlit-App-red.svg
-https://img.shields.io/badge/LangChain-RAG-green.svg
-https://img.shields.io/badge/Pinecone-VectorDB-purple.svg
-https://img.shields.io/badge/OpenAI-GPT--4o--Mini-black.svg
+The chatbot answers customer queries by retrieving information from a product knowledge base stored in Pinecone and generating responses using OpenAI models.
 
-📘 Project Overview
-This project implements an AI‑powered Customer Support Agent using RAG.
-The system retrieves relevant information from Pinecone and generates grounded responses using OpenAI GPT‑4o Mini.
-It supports multi‑turn conversations, intent classification, query rewriting, validation, and product recommendations.
+**Objectives**
 
-🎯 Objectives
-Build an intelligent customer support chatbot
-
-Retrieve accurate product information using Pinecone
-
-Answer complex customer queries using RAG
-
-Recommend alternative products when items are unavailable
-
-Maintain conversation context
-
-Deploy the application using Streamlit
-
-🧰 Technology Stack
-Component	Technology
-Programming Language	Python 3.10
-Frameworks	LangChain, LangGraph, Streamlit
-LLM	OpenAI GPT‑4o Mini
-Embeddings	OpenAI text-embedding-3-small
-Vector DB	Pinecone Serverless
-Development	Google Colab
-Knowledge Base	Jewellery Catalog, Warranty, Shipping, Returns, Care Guide, FAQ
+1.	Build an intelligent customer support chatbot
+2.	Retrieve accurate product information using Pinecone
+3.	Answer complex customer queries using RAG
+4.	Recommend alternative products when requested items are unavailable
+5.	Maintain conversation context
+6.	Deploy the application using Streamlit
 
 
-⚙️ Installation & Setup
-1. Clone the Repository
-Code
-git clone https://github.com/Yuviapp89/AI-Customer-Support-Agent.git
-cd AI-Customer-Support-Agent
-2. Install Dependencies
-Code
-pip install -r requirements.txt
-3. Add Your API Keys
-Use Streamlit Secrets when deploying:
+**Technology Stack**
+1.	Programming Language: Python 3.10
+2.	Frameworks: LangChain, LangGraph, Streamlit
+3.	LLM: OpenAI GPT-4o Mini
+4.	Embedding Model: OpenAI text-embedding-3-small
+5.	Vector Database: Pinecone Serverless
+6.	Development Environment: Google Colab
+7.	Knowledge Base: Jewellery Product Catalog, Warranty Policy, Shipping Policy, Return Policy, Jewellery Care Guide, FAQ
+8.	Project Workflow
+9.	Install required libraries
+10.	Load API keys
+11.	Connect to Pinecone
+12.	Load product knowledge base
+13.	Retrieve relevant documents
+14.	Generate AI responses
+15.	Launch the Streamlit chatbot
 
-Code
-[general]
-OPENAI_API_KEY = "your_key"
-PINECONE_API_KEY = "your_key"
-PINECONE_INDEX_NAME = "your_index"
-LANGSMITH_API_KEY = "your_key"
-LANGSMITH_TRACING = true
-LANGSMITH_PROJECT = "your_project"
-LANGSMITH_ENDPOINT = "https://api.smith.langchain.com"
-For local development, you may also use .env.
 
-🚀 Running the Application
-Local
-Code
-streamlit run app.py
-Cloud (Streamlit Sharing)
-Upload the repo → Add secrets → Deploy.
-
-🔄 Project Workflow
-Install required libraries
-
-Load API keys
-
-Connect to Pinecone
-
-Load product knowledge base
-
-Perform semantic chunking
-
-Generate embeddings
-
-Store vectors in Pinecone
-
-Retrieve relevant documents
-
-Generate AI responses
-
-Launch Streamlit chatbot
-
-📊 Architecture Diagram
-Code
+Flow Diagram
                       Jewellery PDF Documents
   (Product Catalog, Warranty, Shipping, Returns, Care Guide, FAQ)
                                   │
@@ -134,53 +77,23 @@ Code
                                   │
                                   ▼
                        Streamlit Chat Interface
-✨ Features Implemented
-Multi‑agent workflow using LangGraph
+                       
+Features Implemented
 
-Retrieval‑Augmented Generation (RAG)
-
-Semantic chunking with overlap
-
-Metadata‑enhanced retrieval
-
-OpenAI embeddings for similarity search
-
-Intent Classification Agent
-
-Query Rewriter Agent
-
-Document Retrieval Agent
-
-Response Generation Agent (grounded in retrieved docs)
-
-Response Validation Agent (reduces hallucinations)
-
-Recommendation Agent for alternative products
-
-Multi‑turn conversation support
-
-Source‑aware responses
-
-Fallback responses for unsupported queries
-
-Modular agent architecture
-
-Streamlit chat interface
-
-Cloud‑based implementation using Google Colab, OpenAI, Pinecone
-
-📂 Repository Structure
-Code
-AI-Customer-Support-Agent/
-│
-├── data/                 # PDF knowledge base
-├── embeddings/           # Vector storage (optional local)
-├── src/
-│   ├── agents/           # Multi-agent logic
-│   ├── rag/              # RAG pipeline
-│   ├── utils/            # Helper functions
-│   └── config.py         # API keys & settings
-│
-├── app.py                # Streamlit interface
-├── requirements.txt
-└── README.md
+1.	Multi-Agent Customer Support workflow using LangGraph.
+2.	Retrieval-Augmented Generation (RAG) using a Pinecone vector database.
+3.	Semantic document chunking with overlap to preserve context.
+4.	Metadata enhancement for improved document retrieval accuracy.
+5.	OpenAI embeddings for semantic similarity search.
+6.	Intent Classification Agent to identify customer query categories.
+7.	Query Rewriter Agent to transform follow-up questions into standalone queries for better retrieval.
+8.	Intelligent document retrieval with metadata-based filtering and ranking.
+9.	Response Generation Agent using retrieved knowledge only.
+10.	Response Validation Agent to reduce hallucinations and ensure answers are grounded in retrieved documents.
+11.	Recommendation Agent to suggest alternative products when an item is unavailable or when recommendations are requested.
+12.	Conversation history support for multi-turn customer interactions.
+13.	Source-aware responses generated only from the uploaded knowledge base.
+14.	Automatic handling of unsupported or unavailable information with appropriate fallback responses.
+15.	Modular agent architecture that separates retrieval, reasoning, validation, and recommendation tasks.
+16.	Interactive Streamlit chat interface for real-time customer support.
+17.	Cloud-based implementation using Google Colab, OpenAI, and Pinecone.
